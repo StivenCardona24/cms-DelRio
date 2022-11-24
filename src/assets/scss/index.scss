@@ -1,0 +1,41 @@
+@use "element-plus/dist/index.css";
+@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
+
+@use "bootstrap/scss/bootstrap";
+
+
+
+
+a {
+  font-weight: 400;
+  color: var(--el-color-primary);
+}
+
+body{
+    margin: 0px;
+    background-color: #4e4e4e;
+    color: white;
+}
+
+.el-table {
+  --el-table-border-color: #5a5a5a;
+    --el-table-text-color: white;
+    --el-table-header-text-color: white; 
+    --el-table-row-hover-bg-color: rgb(148, 216, 255);
+    --el-table-current-row-bg-color: #8a8585;
+    --el-table-header-bg-color:#1d1d1d;
+    --el-table-fixed-box-shadow: var(--el-box-shadow-light);
+    --el-table-bg-color: var(--el-fill-color-blank);
+    --el-table-tr-bg-color: rgb(54, 54, 54);
+    --el-table-expanded-cell-bg-color: var(--el-fill-color-blank);
+    --el-table-fixed-left-column: inset 10px 0 10px -10px rgba(0, 0, 0, 0.15);
+    --el-table-fixed-right-column: inset -10px 0 10px -10px rgba(0, 0, 0, 0.15);
+}
+
+:root{
+    --el-menu-hover-bg-color: var(--el-color-primary);
+}
+
+
+
+
