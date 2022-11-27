@@ -1,6 +1,6 @@
 <template>
     <el-dialog v-model="dialogIsOpen" :title="dialogTitle">
-    <farm-form/>
+      <farm-form/>
     </el-dialog>
 </template>
   <script lang="ts" setup>

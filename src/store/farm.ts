@@ -4,7 +4,7 @@ import { createCrud } from "@/api/crud";
 import { useDialog } from "../composables/useDialog";
 
 
-const newFarm= (): Farm => ({
+const newFarm = (): Farm => ({
   nombre: "",
   ciudad: 2,
   direccion: "",
@@ -30,7 +30,7 @@ const newFarm= (): Farm => ({
     const farms = ref<Farm[]>([]);
     const currentFarm = ref<Farm>(newFarm());
   
-    const createNewFarm= () => {currentFarm
+    const createNewFarm= () => {
       currentFarm.value = newFarm();
       dialogTitle.value = "Nueva Finca:";
       dialog.openDialog();
@@ -40,7 +40,6 @@ const newFarm= (): Farm => ({
       loadingPage.value = true;
       const  data  = await loadApi();
       farms.value = data;
-      console.log(farms);
       loadingPage.value = false;
     };
   
@@ -62,7 +61,7 @@ const newFarm= (): Farm => ({
   
     const editFarm = (farm: Farm) => {
       currentFarm.value = JSON.parse(JSON.stringify(farm));
-      dialogTitle.value = `Editar Banco: ${currentFarm.value.nombre} `;
+      dialogTitle.value = `Editar Finca: ${currentFarm.value.nombre} `;
       dialog.openDialog();
     };
   

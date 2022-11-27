@@ -1,15 +1,14 @@
 <template>
   <div>
-    <el-table element-loading-background="rgba(155, 155, 155, 0.2)" v-loading="loadingPage" :data="farms "
+    <el-table element-loading-background="rgba(155, 155, 155, 0.2)" v-loading="loadingPage" :data="cities"
       style="width: 100%" >
       <el-table-column prop="id" label="Id" align="center" />
       <el-table-column prop="nombre" label="Nombre" align="center" />
-      <el-table-column prop="direccion" label="Direccion" align="center" />
-      <el-table-column prop="Ciudad" label="Ciudad" align="center" />
+      <el-table-column prop="departamento" label="Direccion" align="center" />
       <el-table-column label="Acciones" align="center">
         <template #default="scope">
           <div>
-            <el-button plain type="primary" @click="editFarm(scope.row)">
+            <el-button plain type="primary" @click="editCity(scope.row)">
               <template #icon>
                 <el-icon>
                   <icon-edit />
@@ -30,16 +29,16 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useFarmStore } from '@/store/farm';
+import { useCityStore } from '@/store/city';
 import { storeToRefs } from "pinia";
 import { ElMessageBox, ElMessage } from 'element-plus';
-const FarmStore = useFarmStore();
-const { farms, loadingPage } = storeToRefs(FarmStore);
-const { editFarm, deleteFarm } = FarmStore;
+const CityStore = useCityStore();
+const { cities, loadingPage } = storeToRefs(CityStore);
+const { editCity, deleteCity } = CityStore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar la finca ${value.name}?`,
-    'Eliminando la finca!',
+    `¿Desea eliminar la ciudad ${value.name}?`,
+    'Eliminando la ciudad!',
     {
       confirmButtonText: 'Aceptar',
       cancelButtonText: 'Cancelar',
@@ -48,10 +47,10 @@ const delMessageBox = (value: any) => {
     }
   )
     .then(async () => {
-      await deleteFarm(value)
+      await deleteCity(value)
       ElMessage({
         type: 'success',
-        message: `finca ${value.name} eliminada`,
+        message: `Ciudad ${value.name} eliminada`,
       })
     })
 }

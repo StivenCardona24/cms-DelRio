@@ -14,89 +14,11 @@
                     </el-icon>
                     <template #title><NuxtLink to="/farm">Fincas</NuxtLink></template>
                 </el-menu-item>
-                <el-menu-item index="/cities">
+                <el-menu-item >  
                     <el-icon>
                         <icon-menu />
                     </el-icon>
-                    <template #title>Ciudades</template>
-                </el-menu-item>
-                <el-menu-item index="/holiday">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Días Festivos</template>
-                </el-menu-item>
-                <el-menu-item index="/invoiceTypes">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Tipos de Factura</template>
-                </el-menu-item>
-                <el-menu-item index="/businessTypes">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Tipos de comercio</template>
-                </el-menu-item>
-                <el-menu-item index="/countries">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Países</template>
-                </el-menu-item>
-                <el-menu-item index="/cities">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Ciudades</template>
-                </el-menu-item>
-                <el-menu-item index="/holiday">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Días Festivos</template>
-                </el-menu-item>
-                <el-menu-item index="/invoiceTypes">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Tipos de Factura</template>
-                </el-menu-item>
-                <el-menu-item index="/businessTypes">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Tipos de comercio</template>
-                </el-menu-item>
-                <el-menu-item index="/countries">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Países</template>
-                </el-menu-item>
-                <el-menu-item index="/cities">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Ciudades</template>
-                </el-menu-item>
-                <el-menu-item index="/holiday">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Días Festivos</template>
-                </el-menu-item>
-                <el-menu-item index="/invoiceTypes">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Tipos de Factura</template>
-                </el-menu-item>
-                <el-menu-item index="/businessTypes">
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title>Tipos de comercio</template>
+                    <template #title><NuxtLink to="/city">Ciudad</NuxtLink></template>
                 </el-menu-item>
                 <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
                     <el-radio-button :label="false">expand</el-radio-button>
