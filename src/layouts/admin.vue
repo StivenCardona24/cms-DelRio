@@ -20,6 +20,42 @@
                     </el-icon>
                     <template #title><NuxtLink to="/city">Ciudad</NuxtLink></template>
                 </el-menu-item>
+                <el-menu-item >  
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title><NuxtLink to="/department">Departamento</NuxtLink></template>
+                </el-menu-item>
+                <el-menu-item >  
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title><NuxtLink to="/employee">Empleados</NuxtLink></template>
+                </el-menu-item>
+                <el-menu-item >  
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title><NuxtLink to="/delivery_status">Estados de entrega</NuxtLink></template>
+                </el-menu-item>
+                <el-menu-item >  
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title><NuxtLink to="/client">Clientes</NuxtLink></template>
+                </el-menu-item>
+                <el-menu-item >  
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title><NuxtLink to="/dependence">Dependencias</NuxtLink></template>
+                </el-menu-item>
+                <el-menu-item >  
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title><NuxtLink to="/ofice">Oficinas</NuxtLink></template>
+                </el-menu-item>
                 <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
                     <el-radio-button :label="false">expand</el-radio-button>
                     <el-radio-button :label="true">collapse</el-radio-button>
