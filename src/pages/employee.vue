@@ -1,6 +1,7 @@
 <template>
     <div class="container">
      <EmployeeHeader/>
+     <el-divider border-style="double" />
      <EmployeeDialog/>
      <EmployeeList/>
     </div>

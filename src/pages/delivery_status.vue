@@ -1,6 +1,7 @@
 <template>
     <div lass="container">
     <delivery_status-header/>
+    <el-divider border-style="double" />
      <delivery_status-list/>
      <delivery_status-dialog/>
     </div>

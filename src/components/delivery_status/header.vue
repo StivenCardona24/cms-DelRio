@@ -2,13 +2,12 @@
     <div>
       <el-progress v-if="loadingPage" :percentage="100" :show-text="false" :indeterminate="true" style="width: 100%" />
     </div>
-    <div class="d-flex  justify-content-between" 
+    <div class="d-flex container pt-4 justify-content-between" 
     >
-      <h1 class="font-bold text-xl">estado de entrega</h1>
+      <h3 class="font-bold text-xl">estado de entrega</h3>
       <div>
         <el-button
-          plain
-          type="warning"
+          type="primary"
           size="large"
           class="font-bold"
           @click="createNewDelivery_status"

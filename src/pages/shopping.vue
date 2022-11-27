@@ -1,6 +1,7 @@
 <template>
     <div class="container">
      <shopping-header/>
+     <el-divider border-style="double" />
      <shopping-dialog/>
      <shopping-list/>
     </div>

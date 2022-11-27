@@ -1,18 +1,19 @@
 <template>
     <div class="container">
-    <city-header/>
-     <city-list/>
-     <city-dialog/>
+    <ofice-header/>
+    <el-divider border-style="double"  />
+     <ofice-list/>
+     <ofice-dialog/>
     </div>
   </template>
 
 <script setup lang="ts">
 
-import { useCityStore } from '@/store/city';
-const { loadCities} = useCityStore();
+import { useOficeStore } from '@/store/ofice';
+const { loadOfice} = useOficeStore();
 
 onMounted(() => {
-    loadCities();
+    loadOfice();
 });
 
 definePageMeta({

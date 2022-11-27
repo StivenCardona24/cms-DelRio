@@ -1,6 +1,7 @@
 <template>
     <div class="container">
      <farm-header/>
+     <el-divider border-style="double" />
      <farm-dialog/>
      <farm-list/>
     </div>

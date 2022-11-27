@@ -1,6 +1,7 @@
 <template>
     <div class="container">
     <client-header/>
+    <el-divider border-style="double" />
      <client-list/>
      <client-dialog/>
     </div>

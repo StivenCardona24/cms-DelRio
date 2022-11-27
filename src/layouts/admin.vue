@@ -1,85 +1,158 @@
 <template>
-    <el-container class="layout-container-demo" style="height: 500px, margin: 0px">
-        <el-header style="text-align: center; font-size: 20px; ">
-                <h1>Admin</h1>
+    <el-container class="layout-container-demo h-100 d-flex position-relative" style="height: 100%, margin: 0px">
+
+        <el-header class="p-3 h-100 sticky-top top-0">
+            <div class="d-flex justify-content-around align-content-between">
+                <div class="d-flex align-items-center">
+                    <el-avatar shape="square" :size="auto" fit="fill" src="https://st.depositphotos.com/1307373/4034/i/600/depositphotos_40348231-stock-photo-field-with-green-sunflowers.jpg" />
+                    <h3>DELRIO</h3>
+                </div>
+                <div class="d-flex align-items-center">
+                    <h3>ADMIN</h3>
+                </div>
+            </div>
+
         </el-header>
 
         <el-container>
-            <el-scrollbar>
-            <el-menu class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
-                @close="handleClose">
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/farm">Fincas</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/city">Ciudad</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/department">Departamento</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/employee">Empleados</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/delivery_status">Estados de entrega</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/client">Clientes</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/dependence">Dependencias</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/ofice">Oficinas</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/product">Productos</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/provide">Proveedores</NuxtLink></template>
-                </el-menu-item>
-                <el-menu-item >  
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <template #title><NuxtLink to="/shopping">Compras</NuxtLink></template>
-                </el-menu-item>
-                <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-                    <el-radio-button :label="false">expand</el-radio-button>
-                    <el-radio-button :label="true">collapse</el-radio-button>
-                </el-radio-group>
-            </el-menu>
-        </el-scrollbar>
+            <el-scrollbar height="639px">
+
+                <el-menu class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen" @close="handleClose">
+                    <div style="text-align:center">
+                        <el-button v-if="isCollapse" type="primary" @click="menuToggle">
+                            <template #icon>
+                                <el-icon>
+                                    <icon-expand />
+                                </el-icon>
+                            </template>
+                        </el-button>
+                        <el-button v-else type="primary" @click="menuToggle">
+                            <template #icon>
+                                <el-icon>
+                                    <icon-fold />
+                                </el-icon>
+                            </template>
+                        </el-button>
+                    </div>
+
+                    <NuxtLink to="/">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>Dasboard</template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/farm">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>Fincas</template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/city">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Ciudad
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/department">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Departamento
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/employee">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Empleados
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/delivery_status">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Estados de entrega
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/client">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Clientes
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/dependence">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Dependencias
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/ofice">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Oficinas
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/product">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Productos
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/provide">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Proveedores
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                    <NuxtLink to="/shopping">
+                        <el-menu-item>
+                            <el-icon>
+                                <icon-menu />
+                            </el-icon>
+                            <template #title>
+                                Compras
+                            </template>
+                        </el-menu-item>
+                    </NuxtLink>
+                </el-menu>
+            </el-scrollbar>
 
             <el-main>
                 <slot></slot>
@@ -95,7 +168,10 @@ import {
     Menu as IconMenu,
     Location,
     Setting,
+    Expand,
+    Fold
 } from '@element-plus/icons-vue'
+import { auto } from '@popperjs/core';
 
 const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {
@@ -104,50 +180,9 @@ const handleOpen = (key: string, keyPath: string[]) => {
 const handleClose = (key: string, keyPath: string[]) => {
     console.log(key, keyPath)
 }
+
+const menuToggle = () => {
+    isCollapse.value = !isCollapse.value;
+}
 </script>
 
-<style>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-}
-
-.layout-container-demo .el-header {
-    position: relative;
-    background-color: #1d1b1b;
-    color: var(--el-color-white);
-}
-
-.layout-container-demo .el-menu {
-    color: var(--el-color-white);
-    background: #1d1b1b;
-    border-right: none;
-    
-}
-
-.layout-container-demo .el-menu li {
-    color: var(--el-color-white);
-}
-
-.layout-container-demo .el-main {
-    padding: 0;
-}
-
-.layout-container-demo .toolbar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    right: 20px;
-}
-
-.layout-container-demo .el-menu a {
-    color: var(--el-color-white);
-    text-decoration: none;
-}
-
-h1{
-    margin:auto;
-
-}
-</style>

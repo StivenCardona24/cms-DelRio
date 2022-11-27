@@ -1,6 +1,7 @@
 <template>
     <div class="container">
     <city-header/>
+    <el-divider border-style="double" />
      <city-list/>
      <city-dialog/>
     </div>

@@ -1,6 +1,7 @@
 <template>
     <div class="container">
     <dependence-header/>
+    <el-divider border-style="double" />
      <dependence-list/>
      <dependence-dialog/>
     </div>

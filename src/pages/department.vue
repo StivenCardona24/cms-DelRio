@@ -1,8 +1,9 @@
 <template>
     <div class="container">
-     <DepartmentHeader/>
-     <DepartmentDialog/>
-     <DepartmentList/>
+     <department-header/>
+     <el-divider border-style="double"  />
+     <department-dialog/>
+     <department-list/>
     </div>
   </template>
 
