@@ -18,7 +18,7 @@
               <icon-plus />
             </el-icon>
           </template>
-          NUEVA FINCA
+          NUEVA CIUDAD
         </el-button>
       </div>
     </div>

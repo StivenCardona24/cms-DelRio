@@ -4,7 +4,7 @@
       style="width: 100%" >
       <el-table-column prop="id" label="Id" align="center" />
       <el-table-column prop="nombre" label="Nombre" align="center" />
-      <el-table-column prop="departamento" label="Direccion" align="center" />
+      <el-table-column prop="departamento" label="Departamento" align="center" />
       <el-table-column label="Acciones" align="center">
         <template #default="scope">
           <div>

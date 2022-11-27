@@ -3,6 +3,7 @@
     <el-table element-loading-background="rgba(155, 155, 155, 0.2)" v-loading="loadingPage" :data="farms "
       style="width: 100%" >
       <el-table-column prop="id" label="Id" align="center" />
+      <el-table-column prop="tipo_finca" label="tipo de finca" align="center" />
       <el-table-column prop="nombre" label="Nombre" align="center" />
       <el-table-column prop="direccion" label="Direccion" align="center" />
       <el-table-column prop="Ciudad" label="Ciudad" align="center" />
