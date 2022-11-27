@@ -56,6 +56,24 @@
                     </el-icon>
                     <template #title><NuxtLink to="/ofice">Oficinas</NuxtLink></template>
                 </el-menu-item>
+                <el-menu-item >  
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title><NuxtLink to="/product">Productos</NuxtLink></template>
+                </el-menu-item>
+                <el-menu-item >  
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title><NuxtLink to="/provide">Proveedores</NuxtLink></template>
+                </el-menu-item>
+                <el-menu-item >  
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title><NuxtLink to="/shopping">Compras</NuxtLink></template>
+                </el-menu-item>
                 <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
                     <el-radio-button :label="false">expand</el-radio-button>
                     <el-radio-button :label="true">collapse</el-radio-button>

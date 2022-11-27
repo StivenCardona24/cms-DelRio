@@ -4,29 +4,29 @@
   </div>
   <div class="d-flex  justify-content-between" 
   >
-    <h1 class="font-bold text-xl">Oficinas</h1>
+    <h1 class="font-bold text-xl">Productos</h1>
     <div>
       <el-button
         plain
         type="warning"
         size="large"
         class="font-bold"
-        @click="createNewOfice"
+        @click="createNewProduct"
       >
         <template #icon>
           <el-icon>
             <icon-plus />
           </el-icon>
         </template>
-        NUEVA OFICINA
+        NUEVO PRODUCTO
       </el-button>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { useOficeStore } from '@/store/ofice'
+import { useProductStore } from '@/store/product'
 import { storeToRefs} from 'pinia'
-const { createNewOfice } = useOficeStore()
-const OficeStore = useOficeStore();
-const { loadingPage } = storeToRefs(OficeStore);
+const { createNewProduct } = useProductStore()
+const ProductStore = useProductStore();
+const { loadingPage } = storeToRefs(ProductStore);
 </script>
