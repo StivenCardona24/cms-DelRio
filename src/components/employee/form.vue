@@ -133,14 +133,15 @@ const rules :any = reactive<FormRules>({
 
 const EmployeeStore = useEmployeeStore();
 const { currentEmployee, mesageBox, edit} = storeToRefs(EmployeeStore);
-const { saveEmployee,editEmployee } = EmployeeStore;
+const { saveEmployee, updateEmployee } = EmployeeStore;
 const save = async () => {
   formRef.value.validate(async (valid) => {
     if (valid) {
 
       if(!edit.value){
         await saveEmployee();
-      }else{await saveEmployee();
+      }else{
+        await updateEmployee();
       }
       
         ElMessage({

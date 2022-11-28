@@ -112,6 +112,7 @@ const newEmployee= (): Employee => ({
       deleteEmployee,
       loadingPage,
       dialogTitle,
+      updateEmployee,
       mesageBox,
       ...dialog,
     };
