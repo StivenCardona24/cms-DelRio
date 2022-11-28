@@ -79,6 +79,19 @@ body{
   text-decoration: none;
 }
 
+.el-dialog{
+
+  --el-dialog-bg-color: #4e4e4e;
+  --el-text-color-primary: white;
+  --el-text-color-regular: white; 
+}
+
+.el-input__wrapper{
+  --el-input-bg-color: #6d6d6d;
+  --el-input-text-color: white;
+  --el-input-placeholder-color: #ffffff;
+}
+
 h1 {
   margin: auto;
 
