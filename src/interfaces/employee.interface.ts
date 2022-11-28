@@ -1,6 +1,6 @@
 
 export interface Employee {
-    cedula?: number;
+    cedula: any;
     primer_nombre: string;
     segundo_nombre: string;
     primer_apellido: string;

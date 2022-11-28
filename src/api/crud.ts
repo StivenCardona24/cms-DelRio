@@ -47,7 +47,7 @@ export const createCrud = (options: CrudOptions) => {
     }
   };
 
-  const update = async (id: number, data: any) => {
+  const update = async (id: number , data: any) => {
     try {
       const response = await api.put(`/${id}`, data);
       return response.data;
