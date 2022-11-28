@@ -7,7 +7,7 @@ import { isDate } from "element-plus/es/utils";
 
 
 const newEmployee= (): Employee => ({
-  cedula: 0,
+  cedula: "",
   primer_nombre: "",
   segundo_nombre: "",
   primer_apellido: "",
@@ -31,7 +31,7 @@ const newEmployee= (): Employee => ({
     const loadingPage = ref(false);
     let mesageBox =ref<{type:"success" | "warning" | "info" | "error",message:string }>();
     let dialogTitle = ref("");
-  
+    const edit=ref(false);
     const {
       getAll: loadApi,
       create: createApi,
@@ -46,6 +46,7 @@ const newEmployee= (): Employee => ({
       currentEmployee.value = newEmployee();
       dialogTitle.value = "Nuevo empleado:";
       dialog.openDialog();
+      edit.value=false;
     };
   
     const loadEmployee = async () => {
@@ -58,25 +59,39 @@ const newEmployee= (): Employee => ({
   
     const saveEmployee = async () => {
       if (!currentEmployee.value) {
-          return mesageBox;
-      }
-      if (!currentEmployee.value.cedula) {
-        await createApi(currentEmployee.value);
-        mesageBox.value = {type:'success',message:`el empleado ${currentEmployee.value.primer_nombre} ha sido creada correctamente`};
-      } else {
-        await updateApi(currentEmployee.value.cedula, currentEmployee.value)
-        mesageBox.value = {type:'success', message:`el empleado ${currentEmployee.value.primer_nombre} se ha actualizado correctamente`};
-      }
+        return mesageBox;
+        
+    }
+    await createApi(currentEmployee.value);
+    mesageBox.value = {type:'success',message:`el empleado ${currentEmployee.value.primer_nombre} ha sido creada correctamente`};
+
+    
       await loadEmployee();
       dialog.closeDialog();
       
     };
-  
+   const updateEmployee = async ( ) => {
+    if (!currentEmployee.value) {
+      return mesageBox;
+    }
+    if(currentEmployee.value.cedula ) {
+
+      currentEmployee.value.cedula = parseInt(currentEmployee.value.cedula)
+      await updateApi(currentEmployee.value.cedula, currentEmployee.value)
+      mesageBox.value = {type:'success', message:`el empleado ${currentEmployee.value.primer_nombre} se ha actualizado correctamente`};
+    }
+    await loadEmployee();
+    dialog.closeDialog();
+
+   }
+
+
     const editEmployee = (employee: Employee) => {
       currentEmployee.value = JSON.parse(JSON.stringify(employee));
       dialogTitle.value = `Editar empleado: ${currentEmployee.value.primer_nombre} `;
       dialog.openDialog();
-    };
+      edit.value=(true);
+        };
   
     const deleteEmployee = async (employee: Employee) => {
       currentEmployee.value = JSON.parse(JSON.stringify(employee));
@@ -87,6 +102,7 @@ const newEmployee= (): Employee => ({
       await loadEmployee();
     };
     return {
+      edit,
       employees,
       currentEmployee,
       createNewEmployee,

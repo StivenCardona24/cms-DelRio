@@ -6,6 +6,9 @@
     label-width="190px"
     label-position="left"
   >
+  <el-form-item class="mb-6" label="Cedula: " prop="cedula">
+      <el-input v-model="currentEmployee.cedula" placeholder="Ingresa el primer cedula del empleado" />
+    </el-form-item>
     <el-form-item class="mb-6" label="primer nombre: " prop="primer_nombre">
       <el-input v-model="currentEmployee.primer_nombre" placeholder="Ingresa el primer nombre del empleado" />
     </el-form-item>
@@ -28,7 +31,11 @@
       <el-input v-model="currentEmployee.cargo" placeholder="Ingresa el cargo" /> 
     </el-form-item> 
     <el-form-item class="mb-6" label="fecha_nacimiento: " prop="fecha_nacimiento">
-      <el-input v-model="currentEmployee.fecha_nacimiento" placeholder="Ingresa la fecha de nacimiento" /> 
+      <el-date-picker
+        v-model="currentEmployee.fecha_nacimiento"
+        type="date"
+        placeholder="Pick a day"
+          />
     </el-form-item> 
     <el-form-item class="mb-6" label="dependencia: " prop="dependencia">
       <el-input v-model="currentEmployee.dependencia" placeholder="Ingresa la dependencia" /> 
@@ -125,12 +132,17 @@ const rules :any = reactive<FormRules>({
 })
 
 const EmployeeStore = useEmployeeStore();
-const { currentEmployee, mesageBox} = storeToRefs(EmployeeStore);
-const { saveEmployee } = EmployeeStore;
+const { currentEmployee, mesageBox, edit} = storeToRefs(EmployeeStore);
+const { saveEmployee,editEmployee } = EmployeeStore;
 const save = async () => {
   formRef.value.validate(async (valid) => {
     if (valid) {
-      await saveEmployee();
+
+      if(!edit.value){
+        await saveEmployee();
+      }else{await saveEmployee();
+      }
+      
         ElMessage({
           type: `${mesageBox.value.type}`,
           message: `${mesageBox.value.message}`,
