@@ -8,4 +8,19 @@
   </div>
 </template>
 
+<script>
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from "@/store/auth"
+const { openAuth} = useAuthStore();
+const AuthStore = useAuthStore()
+  const { user } = storeToRefs(AuthStore)
+
+  onMounted(() => {
+  console.log(user.value);
+  if(!user.value){
+    openAuth();
+  }
+  
+});
+</script>
 

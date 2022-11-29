@@ -18,7 +18,6 @@ const newAuth = (): Auth => ({
     let mesageBox =ref<{type:"success" | "warning" | "info" | "error",message:string }>();
     let dialogTitle = ref("");
     dialogTitle.value = "Iniciar Sesión:";
-    dialog.openDialog();
   
     const {
       create: createApi,
@@ -26,12 +25,14 @@ const newAuth = (): Auth => ({
     } = createCrud({ resource: "login" });
   
     const currentAuth = ref<Auth>(newAuth());
-    const user = ref <Employee | Client >(null);
+    const user = ref <Employee | Client >();
 
-    // const createNewAuth= () => {
-    //     currentAuth.value = newAuth();
+    const openAuth= () => {
+        currentAuth.value = newAuth();
+        dialog.openDialog();
+        dialogTitle.value = "Iniciar Sesión:";
       
-    // };
+    };
   
 
     const saveAuth = async () => {
@@ -40,10 +41,17 @@ const newAuth = (): Auth => ({
       }
       else {
         user.value =  await createApi(currentAuth.value);
-        mesageBox.value = {type:'success',message:`Has iniciado sesión ${user.value.cedula} correctamente`};
-      }
-      dialog.closeDialog();
+        if(user.value){
+            mesageBox.value = {type:'success',message:`Has iniciado sesión ${user.value.cedula} correctamente`};
+            dialog.closeDialog();
       
+        }
+        else{
+            mesageBox.value = {type:'warning',message:`Correo o contraseña incorrectos`};
+        }
+       
+      }
+     
     };
   
     return {
@@ -53,6 +61,7 @@ const newAuth = (): Auth => ({
       loadingPage,
       dialogTitle,
       mesageBox,
+      openAuth,
       ...dialog,
     };
   });

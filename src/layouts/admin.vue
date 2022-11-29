@@ -7,15 +7,22 @@
                     <el-avatar shape="square" size="default" fit="fill" src="https://st.depositphotos.com/1307373/4034/i/600/depositphotos_40348231-stock-photo-field-with-green-sunflowers.jpg" />
                     <h3>DELRIO</h3>
                 </div>
-                <div class="d-flex align-items-center">
-                    <h3>ADMIN</h3>
+                <div v-if="user" class="d-flex align-items-center">
+                    <h3 v-text="user.primer_nombre"></h3>
                 </div>
+                <!-- <div v-else >
+                    <NuxtLink to="/auth">
+                        <button type="button" class="btn btn-primary" index="/">Iniciar Sesión</button>
+                    </NuxtLink>
+                </div> -->
             </div>
 
         </el-header>
 
-        <el-container>
-            <el-scrollbar height="639px">
+        <auth-dialog/>
+
+        <el-container >
+            <el-scrollbar v-if="user" height="639px">
 
                 <el-menu class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen" @close="handleClose">
                     <div style="text-align:center" class="sticky-top top-0">
@@ -40,7 +47,7 @@
                             <el-icon>
                                 <icon-menu />
                             </el-icon>
-                            <template #title>Dasboard</template>
+                            <template #title>Dashboard</template>
                         </el-menu-item>
                     </NuxtLink>
                     <NuxtLink to="/farm">
@@ -172,6 +179,13 @@ import {
     Fold
 } from '@element-plus/icons-vue'
 import { auto } from '@popperjs/core';
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from "@/store/auth"
+const { openAuth} = useAuthStore();
+
+const AuthStore = useAuthStore()
+const { user } = storeToRefs(AuthStore)
+
 
 const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {

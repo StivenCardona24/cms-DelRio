@@ -1,5 +1,5 @@
 <template>
-    <el-dialog v-model="dialogIsOpen" :title="dialogTitle">
+    <el-dialog  :show-close="false" v-model="dialogIsOpen" :title="dialogTitle">
       <auth-form/>
     </el-dialog>
 </template>
