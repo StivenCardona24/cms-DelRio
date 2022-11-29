@@ -2,7 +2,8 @@
   <div>
     <el-table element-loading-background="rgba(155, 155, 155, 0.2)" v-loading="loadingPage" :data="dependencies "
       style="width: 100%" >
-      <el-table-column prop="nombre" label="Nombre" align="center" />      
+      <el-table-column prop="nombre" label="Nombre" align="center" />    
+      <el-table-column prop="empleados" label="Empleados" align="center" />     
       <el-table-column label="Acciones" align="center">
         <template #default="scope">
           <div>
@@ -35,7 +36,7 @@ const { dependencies, loadingPage } = storeToRefs(DependenceStore);
 const { editDependence, deleteDependence } = DependenceStore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar la dependecia ${value.name}?`,
+    `¿Desea eliminar la dependecia ${value.nombre}?`,
     'Eliminando la dependencia!',
     {
       confirmButtonText: 'Aceptar',
@@ -48,7 +49,7 @@ const delMessageBox = (value: any) => {
       await deleteDependence(value)
       ElMessage({
         type: 'success',
-        message: `dependencia ${value.name} eliminada`,
+        message: `dependencia ${value.nombre} eliminada`,
       })
     })
 }

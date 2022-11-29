@@ -37,7 +37,7 @@ const { shoopings, loadingPage } = storeToRefs(ShoppingStore);
 const { editShopping, deleteShopping } = ShoppingStore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar la finca ${value.name}?`,
+    `¿Desea eliminar la finca ${value.nombre}?`,
     'Eliminando la finca!',
     {
       confirmButtonText: 'Aceptar',
@@ -50,7 +50,7 @@ const delMessageBox = (value: any) => {
       await deleteShopping(value)
       ElMessage({
         type: 'success',
-        message: `finca ${value.name} eliminada`,
+        message: `finca ${value.nombre} eliminada`,
       })
     })
 }

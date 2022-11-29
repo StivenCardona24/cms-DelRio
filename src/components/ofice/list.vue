@@ -37,7 +37,7 @@ const { Ofices, loadingPage } = storeToRefs(OficeStore);
 const { editOfice, deleteOfice } = OficeStore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar la oficina ${value.name}?`,
+    `¿Desea eliminar la oficina ${value.nombre}?`,
     'Eliminando la oficina!',
     {
       confirmButtonText: 'Aceptar',
@@ -50,7 +50,7 @@ const delMessageBox = (value: any) => {
       await deleteOfice(value)
       ElMessage({
         type: 'success',
-        message: `oficina ${value.name} eliminada`,
+        message: `oficina ${value.nombre} eliminada`,
       })
     })
 }

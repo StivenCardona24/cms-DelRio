@@ -13,7 +13,7 @@
       <el-input v-model="currentShopping.id_finca" placeholder="Ingresa el id de la finca" />
     </el-form-item>    
     <el-form-item>
-      <el-button @click="save" type="primary" plain>GUARDAR</el-button>
+      <el-button @click="save" type="primary" >GUARDAR</el-button>
     </el-form-item>
 
 

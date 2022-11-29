@@ -36,7 +36,7 @@ const { departments, loadingPage } = storeToRefs(DepartmentStore);
 const { editDepartment, deleteDepartment } = DepartmentStore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar la ciudad ${value.name}?`,
+    `¿Desea eliminar la ciudad ${value.nombre}?`,
     'Eliminando la ciudad!',
     {
       confirmButtonText: 'Aceptar',
@@ -49,7 +49,7 @@ const delMessageBox = (value: any) => {
       await deleteDepartment(value)
       ElMessage({
         type: 'success',
-        message: `Ciudad ${value.name} eliminada`,
+        message: `Ciudad ${value.nombre} eliminada`,
       })
     })
 }

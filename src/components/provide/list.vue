@@ -36,7 +36,7 @@ const { providers, loadingPage } = storeToRefs(ProvideStore);
 const { editProvide, deleteProvide } = ProvideStore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar el proveedor ${value.name}?`,
+    `¿Desea eliminar el proveedor ${value.nombre}?`,
     'Eliminando el proveedor!',
     {
       confirmButtonText: 'Aceptar',
@@ -49,7 +49,7 @@ const delMessageBox = (value: any) => {
       await deleteProvide(value)
       ElMessage({
         type: 'success',
-        message: `proveedor ${value.name} eliminada`,
+        message: `proveedor ${value.nombre} eliminada`,
       })
     })
 }

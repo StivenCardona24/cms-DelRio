@@ -45,7 +45,7 @@ const { employees, loadingPage } = storeToRefs(EmployeeStore);
 const { editEmployee, deleteEmployee } = EmployeeStore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar el empleado ${value.name}?`,
+    `¿Desea eliminar el empleado ${value.nombre}?`,
     'Eliminando la ciudad!',
     {
       confirmButtonText: 'Aceptar',
@@ -58,7 +58,7 @@ const delMessageBox = (value: any) => {
       await deleteEmployee(value)
       ElMessage({
         type: 'success',
-        message: `Empleado ${value.name} eliminada`,
+        message: `Empleado ${value.nombre} eliminada`,
       })
     })
 }

@@ -40,7 +40,7 @@ const { clients, loadingPage } = storeToRefs(Clientstore);
 const { editClient, deleteClient } = Clientstore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar el cliente ${value.name}?`,
+    `¿Desea eliminar el cliente ${value.nombre}?`,
     'Eliminando el cliente!',
     {
       confirmButtonText: 'Aceptar',
@@ -53,7 +53,7 @@ const delMessageBox = (value: any) => {
       await deleteClient(value)
       ElMessage({
         type: 'success',
-        message: `cliente ${value.name} eliminado`,
+        message: `cliente ${value.nombre} eliminado`,
       })
     })
 }

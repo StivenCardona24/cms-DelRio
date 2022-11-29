@@ -4,7 +4,7 @@
         <el-header class="p-3 h-100 sticky-top top-0">
             <div class="d-flex justify-content-around align-content-between">
                 <div class="d-flex align-items-center">
-                    <el-avatar shape="square" :size="auto" fit="fill" src="https://st.depositphotos.com/1307373/4034/i/600/depositphotos_40348231-stock-photo-field-with-green-sunflowers.jpg" />
+                    <el-avatar shape="square" size="default" fit="fill" src="https://st.depositphotos.com/1307373/4034/i/600/depositphotos_40348231-stock-photo-field-with-green-sunflowers.jpg" />
                     <h3>DELRIO</h3>
                 </div>
                 <div class="d-flex align-items-center">
@@ -18,15 +18,15 @@
             <el-scrollbar height="639px">
 
                 <el-menu class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen" @close="handleClose">
-                    <div style="text-align:center">
-                        <el-button v-if="isCollapse" type="primary" @click="menuToggle">
+                    <div style="text-align:center" class="sticky-top top-0">
+                        <el-button style="--el-button-size: 40px" v-if="isCollapse" type="primary" @click="menuToggle" >
                             <template #icon>
                                 <el-icon>
                                     <icon-expand />
                                 </el-icon>
                             </template>
                         </el-button>
-                        <el-button v-else type="primary" @click="menuToggle">
+                        <el-button style="--el-button-size: 40px" v-else type="primary" @click="menuToggle">
                             <template #icon>
                                 <el-icon>
                                     <icon-fold />

@@ -1,5 +1,5 @@
 @use "element-plus/dist/index.css";
-@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
+@use "element-plus/theme-chalk/src/dark/css-vars.scss" ;
 
 @use "bootstrap/scss/bootstrap";
 
@@ -17,6 +17,7 @@ body{
     color: white;
     min-height: 100%;
 }
+
 
 .el-table {
   --el-table-border-color: #5a5a5a;
@@ -49,6 +50,7 @@ body{
   position: relative;
   background-color: #1d1b1b;
   color: var(--el-color-white);
+  box-shadow:  2px 2px 20px 2px #aaaaaa;
 }
 
 .layout-container-demo .el-menu {
@@ -81,13 +83,13 @@ body{
 
 .el-dialog{
 
-  --el-dialog-bg-color: #4e4e4e;
+  --el-dialog-bg-color: #3a3a3a;
   --el-text-color-primary: white;
   --el-text-color-regular: white; 
 }
 
 .el-input__wrapper{
-  --el-input-bg-color: #6d6d6d;
+  --el-input-bg-color: #313131;
   --el-input-text-color: white;
   --el-input-placeholder-color: #ffffff;
 }

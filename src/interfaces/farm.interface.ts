@@ -1,4 +1,5 @@
 import { City } from "./city.interface";
+import { Ofice } from "./ofice.interface";
 
 export interface Farm {
   id?: number;
@@ -8,5 +9,5 @@ export interface Farm {
   celular: string;
   tipo_finca: any | number;
   cuenta: string;
-  oficina:any | number;
+  oficina: Ofice | number;
 }

@@ -14,10 +14,12 @@ export const createCrud = (options: CrudOptions) => {
     headers: {
       "Content-Type": "application/json",
     },
+    params: {}
   });
 
   const getAll = async (data?: any) => {
     try {
+      console.log(data);
       const response = await api.get("/", { params: data });
       console.log(response);
       return response.data;

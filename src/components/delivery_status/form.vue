@@ -10,7 +10,7 @@
       <el-input v-model="currentDelivery_status.nombre" placeholder="Ingresa el nombre del estado de entrega" />
     </el-form-item>    
     <el-form-item>
-      <el-button @click="save" type="primary" plain>GUARDAR</el-button>
+      <el-button @click="save" type="primary" >GUARDAR</el-button>
     </el-form-item>
 
 

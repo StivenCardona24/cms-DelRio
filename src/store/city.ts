@@ -6,7 +6,7 @@ import { useDialog } from "../composables/useDialog";
 
 const newCity = (): City => ({
   nombre: "",
-  departamento: 2,
+  departamento: null,
   });
 
   export const useCityStore = defineStore("city", () => {

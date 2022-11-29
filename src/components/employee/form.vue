@@ -37,14 +37,14 @@
         placeholder="Pick a day"
           />
     </el-form-item> 
-    <el-form-item class="mb-6" label="dependencia: " prop="dependencia">
-      <el-input v-model="currentEmployee.dependencia" placeholder="Ingresa la dependencia" /> 
+    <el-form-item  class="mb-6" label="dependencia: " prop="dependencia">
+      <el-input  v-model="currentEmployee.dependencia" placeholder="Ingresa la dependencia" /> 
     </el-form-item> 
     <el-form-item class="mb-6" label="oficina: " prop="oficina">
       <el-input v-model="currentEmployee.oficina" placeholder="Ingresa la oficina" /> 
     </el-form-item> 
     <el-form-item>
-      <el-button @click="save" type="primary" plain>GUARDAR</el-button>
+      <el-button @click="save" type="primary" >GUARDAR</el-button>
     </el-form-item>
 
 

@@ -36,7 +36,7 @@ const { delivery_states, loadingPage } = storeToRefs(Delivery_statusStore);
 const { editDelivery_status, deleteDelivery_status } = Delivery_statusStore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar el estado de entrega ${value.name}?`,
+    `¿Desea eliminar el estado de entrega ${value.nombre}?`,
     'Eliminando el estado de entrega!',
     {
       confirmButtonText: 'Aceptar',
@@ -49,7 +49,7 @@ const delMessageBox = (value: any) => {
       await deleteDelivery_status(value)
       ElMessage({
         type: 'success',
-        message: `Estado de entrega a sido ${value.name} eliminado`,
+        message: `Estado de entrega a sido ${value.nombre} eliminado`,
       })
     })
 }

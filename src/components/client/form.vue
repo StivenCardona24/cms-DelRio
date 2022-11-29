@@ -22,11 +22,24 @@
       <el-input v-model="currentClient.cantidad_compras" placeholder="Ingresa el cantidad de compras " />
     </el-form-item>
     <el-form-item class="mb-6" label="estado: " prop="estado">
-      <el-input v-model="currentClient.estado" placeholder="Ingresa el estado " />
+      <el-select v-model="currentClient.estado" placeholder="Selecciona el estado del cliente" clearable class="w-full">
+        <el-option
+          label="Activo"
+          :value="StatusClient.ACTIVO"
+        />
+        <el-option
+          label="Pasivo"
+          :value="StatusClient.PASIVO"
+        />
+        <el-option
+          label="Paz y salvo"
+          :value="StatusClient.PAZYSALVO"
+        />
+      </el-select>
     </el-form-item>
     
     <el-form-item>
-      <el-button @click="save" type="primary" plain>GUARDAR</el-button>
+      <el-button @click="save" type="primary" >GUARDAR</el-button>
     </el-form-item>
 
 
@@ -35,6 +48,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from "element-plus";
 import { useClientStore } from '@/store/client'
+import { StatusClient } from '@/interfaces/client.interface'
 import {ElMessage } from 'element-plus';
 import { storeToRefs } from "pinia";
 const formRef :any = ref<FormInstance>();

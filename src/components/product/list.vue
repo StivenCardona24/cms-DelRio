@@ -41,7 +41,7 @@ const { products, loadingPage } = storeToRefs(ProductStore);
 const { editProduct, deleteProduct } = ProductStore;
 const delMessageBox = (value: any) => {
   ElMessageBox.confirm(
-    `¿Desea eliminar el product  ${value.name}?`,
+    `¿Desea eliminar el product  ${value.nombre}?`,
     'Eliminando el producto!',
     {
       confirmButtonText: 'Aceptar',
@@ -54,7 +54,7 @@ const delMessageBox = (value: any) => {
       await deleteProduct(value)
       ElMessage({
         type: 'success',
-        message: `producto ${value.name} eliminada`,
+        message: `producto ${value.nombre} eliminada`,
       })
     })
 }

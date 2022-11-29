@@ -9,11 +9,18 @@
     <el-form-item class="mb-6" label="Nombre: " prop="nombre">
       <el-input v-model="currentCity.nombre" placeholder="Ingresa el nombre de la finca" />
     </el-form-item>
-    <el-form-item class="mb-6" label="departamento: " prop="departamento">
-      <el-input v-model="currentCity.departamento" placeholder="Ingresa el departamento" /> 
+    <el-form-item class="mb-6" label="Departamento: " prop="departamento">
+      <el-select v-model="currentCity.departamento" placeholder="Selecciona el departamento" clearable class="w-100" >
+        <el-option
+          v-for="department in departments"
+          :key="department.id"
+          :label="`${department.nombre}`"
+          :value="department.id"
+        />
+      </el-select>
     </el-form-item> 
     <el-form-item>
-      <el-button @click="save" type="primary" plain>GUARDAR</el-button>
+      <el-button @click="save" type="primary" >GUARDAR</el-button>
     </el-form-item>
 
 
@@ -22,6 +29,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from "element-plus";
 import { useCityStore } from '@/store/city'
+import { useDepartmentStore } from '@/store/department'
 import {ElMessage } from 'element-plus';
 import { storeToRefs } from "pinia";
 const formRef :any = ref<FormInstance>();
@@ -44,6 +52,8 @@ const rules :any = reactive<FormRules>({
 
 const CityStore = useCityStore();
 const { currentCity, mesageBox} = storeToRefs(CityStore);
+const DepartmentStore = useDepartmentStore();
+const { departments } = storeToRefs(DepartmentStore)
 const { saveCity } = CityStore;
 const save = async () => {
   formRef.value.validate(async (valid) => {

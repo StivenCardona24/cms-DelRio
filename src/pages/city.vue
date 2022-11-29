@@ -10,10 +10,13 @@
 <script setup lang="ts">
 
 import { useCityStore } from '@/store/city';
+import { useDepartmentStore } from "@/store/department"
 const { loadCities} = useCityStore();
+const { loadDepartment} = useDepartmentStore();
 
 onMounted(() => {
     loadCities();
+    loadDepartment();
 });
 
 definePageMeta({
