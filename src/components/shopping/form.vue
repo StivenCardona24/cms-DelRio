@@ -10,7 +10,14 @@
       <el-input v-model="currentShopping.total" placeholder="Ingresa el total de la compra" />
     </el-form-item>
     <el-form-item class="mb-6" label="id de finca: " prop="id_finca">
-      <el-input v-model="currentShopping.id_finca" placeholder="Ingresa el id de la finca" />
+      <el-select v-model="currentShopping.id_finca" placeholder="Selecciona el departamento" clearable class="w-100" >
+        <el-option
+          v-for="farm in farms"
+          :key="farm.id"
+          :label="`${farm.nombre}`"
+          :value="farm.id"
+        />
+      </el-select>
     </el-form-item>    
     <el-form-item>
       <el-button @click="save" type="primary" >GUARDAR</el-button>
@@ -22,6 +29,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from "element-plus";
 import { useShoppingStore } from '@/store/shopping'
+import { useFarmStore } from '@/store/farm'
 import {ElMessage } from 'element-plus';
 import { storeToRefs } from "pinia";
 const formRef :any = ref<FormInstance>();
@@ -44,6 +52,8 @@ const rules :any = reactive<FormRules>({
 
 const ShoppingStore = useShoppingStore();
 const { currentShopping, mesageBox} = storeToRefs(ShoppingStore);
+const FarmStore = useFarmStore();
+const { farms } = storeToRefs(FarmStore)
 const { saveShopping } = ShoppingStore;
 const save = async () => {
   formRef.value.validate(async (valid) => {

@@ -14,10 +14,10 @@ const newEmployee= (): Employee => ({
   segundo_apellido: "",
   estudios: "",
   sueldo: 0,
-  cargo: 1,
+  cargo: null,
   fecha_nacimiento: "",
-  dependencia: 1,
-  oficina: 2,
+  dependencia: null,
+  oficina: null,
 
 
 
@@ -39,6 +39,8 @@ const newEmployee= (): Employee => ({
       deleteOne: deleteApi,
     } = createCrud({ resource: "empleado" });
   
+    const cargos = ref<any[]>([]);
+
     const employees = ref<Employee[]>([]);
     const currentEmployee = ref<Employee>(newEmployee());
   

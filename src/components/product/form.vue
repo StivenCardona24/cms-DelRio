@@ -16,11 +16,25 @@
       <el-input v-model="currentProduct.descripcion" placeholder="Ingres la descripcion del producto" />
     </el-form-item>
     <el-form-item class="mb-6" label="tipo: " prop="tipo">
-      <el-input v-model="currentProduct.tipo" placeholder="Ingresa el tipo" />
-    </el-form-item>
+      <el-select v-model="currentProduct.tipo" placeholder="Selecciona el tipo de producto" clearable class="w-100" >
+        <el-option
+          v-for="type_product in type_products"
+          :key="type_product.id"
+          :label="`${type_product.nombre}`"
+          :value="type_product.id"
+        />
+      </el-select>
+      </el-form-item>
     <el-form-item class="mb-6" label="finca: " prop="finca">
-      <el-input v-model="currentProduct.finca" placeholder="Ingresa la finca" />
-    </el-form-item>
+      <el-select v-model="currentProduct.finca" placeholder="Selecciona la finca" clearable class="w-100" >
+        <el-option
+          v-for="farm in farms"
+          :key="farm.id"
+          :label="`${farm.nombre}`"
+          :value="farm.id"
+        />
+      </el-select>
+      </el-form-item>
     <el-form-item class="mb-6" label="nombre: " prop="nombre">
       <el-input v-model="currentProduct.nombre" placeholder="Ingresa el nombre" />
     </el-form-item>
@@ -35,6 +49,9 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from "element-plus";
 import { useProductStore } from '@/store/product'
+import { useType_productStore } from '@/store/confi'
+import { useType_farmStore } from '@/store/confi'
+import { useFarmStore } from '@/store/farm'
 import {ElMessage } from 'element-plus';
 import { storeToRefs } from "pinia";
 const formRef :any = ref<FormInstance>();
@@ -88,6 +105,10 @@ const rules :any = reactive<FormRules>({
 
 const ProductStore = useProductStore();
 const { currentProduct, mesageBox} = storeToRefs(ProductStore);
+const Type_productStore = useType_productStore();
+const { type_products } = storeToRefs(Type_productStore)
+const FarmStore = useFarmStore();
+const { farms } = storeToRefs(FarmStore)
 const { saveProduct } = ProductStore;
 const save = async () => {
   formRef.value.validate(async (valid) => {

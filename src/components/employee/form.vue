@@ -28,7 +28,14 @@
       <el-input v-model="currentEmployee.sueldo" placeholder="Ingresa el sueldo" /> 
     </el-form-item> 
     <el-form-item class="mb-6" label="cargo: " prop="cargo">
-      <el-input v-model="currentEmployee.cargo" placeholder="Ingresa el cargo" /> 
+       <el-select v-model="currentEmployee.cargo" placeholder="Selecciona el departamento" clearable class="w-100" >
+        <el-option
+          v-for="position in positions "
+          :key="position.id"
+          :label="`${position.nombre}`"
+          :value="position.id"
+        />
+      </el-select>
     </el-form-item> 
     <el-form-item class="mb-6" label="fecha_nacimiento: " prop="fecha_nacimiento">
       <el-date-picker
@@ -38,11 +45,25 @@
           />
     </el-form-item> 
     <el-form-item  class="mb-6" label="dependencia: " prop="dependencia">
-      <el-input  v-model="currentEmployee.dependencia" placeholder="Ingresa la dependencia" /> 
+      <el-select v-model="currentEmployee.dependencia" placeholder="Selecciona el departamento" clearable class="w-100" >
+        <el-option
+          v-for="dependence in dependencies"
+          :key="dependence.id"
+          :label="`${dependence.nombre}`"
+          :value="dependence.id"
+        />
+      </el-select>
     </el-form-item> 
     <el-form-item class="mb-6" label="oficina: " prop="oficina">
-      <el-input v-model="currentEmployee.oficina" placeholder="Ingresa la oficina" /> 
-    </el-form-item> 
+      <el-select v-model="currentEmployee.oficina" placeholder="Selecciona el departamento" clearable class="w-100" >
+        <el-option
+          v-for="ofice in Ofices"
+          :key="ofice.id"
+          :label="`${ofice.nombre}`"
+          :value="ofice.id"
+        />
+        </el-select>
+      </el-form-item> 
     <el-form-item>
       <el-button @click="save" type="primary" >GUARDAR</el-button>
     </el-form-item>
@@ -53,6 +74,11 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from "element-plus";
 import { useEmployeeStore } from '@/store/employee'
+import { useOficeStore} from '@/store/ofice'
+import { useDependenceStore } from '@/store/dependence'
+import { usePositionStore } from '@/store/confi'
+
+
 import {ElMessage } from 'element-plus';
 import { storeToRefs } from "pinia";
 const formRef :any = ref<FormInstance>();
@@ -133,6 +159,12 @@ const rules :any = reactive<FormRules>({
 
 const EmployeeStore = useEmployeeStore();
 const { currentEmployee, mesageBox, edit} = storeToRefs(EmployeeStore);
+const OficeStore = useOficeStore();
+const DependenceStore = useDependenceStore();
+const PositionStore = usePositionStore();
+const { Ofices } = storeToRefs(OficeStore)
+const { dependencies } = storeToRefs(DependenceStore)
+const { positions } = storeToRefs(PositionStore)
 const { saveEmployee, updateEmployee } = EmployeeStore;
 const save = async () => {
   formRef.value.validate(async (valid) => {

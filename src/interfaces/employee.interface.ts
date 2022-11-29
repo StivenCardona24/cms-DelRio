@@ -1,3 +1,6 @@
+import { Position } from "postcss";
+import { Dependence } from "./dependence.interface";
+import { Ofice } from "./ofice.interface";
 
 export interface Employee {
     cedula: any;
@@ -7,9 +10,9 @@ export interface Employee {
     segundo_apellido: string;
     estudios: string;
     sueldo: number;
-    cargo: any |  number;
+    cargo:  Position|  number;
     fecha_nacimiento: string | Date;
-    dependencia: any |  number;
-    oficina: any |  number;
+    dependencia: Dependence |  number;
+    oficina: Ofice |  number;
   }
   

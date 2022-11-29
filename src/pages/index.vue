@@ -5,7 +5,7 @@
   </div>
 </template>
 <script setup lang="ts" type="text/javascript">
-import { GChart } from 'vue-google-charts'
+
 import {useDependenceStore} from "@/store/dependence"
 import { storeToRefs } from "pinia";
 import { each, forEach, map } from 'lodash';

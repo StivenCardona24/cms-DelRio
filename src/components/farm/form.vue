@@ -33,7 +33,7 @@
       </el-select>
     </el-form-item>
     <el-form-item class="mb-6" label="Celular: " prop="celular">
-      <el-input v-model="currentFarm.celular" placeholder="Ingresa el nombre de la finca" />
+      <el-input v-model="currentFarm.celular" placeholder="Ingresa el celular de la finca" />
     </el-form-item>
     <el-form-item class="mb-6" label="Cuenta: " prop="cuenta">
       <el-input v-model="currentFarm.cuenta" placeholder="Ingresa la direccion" />
