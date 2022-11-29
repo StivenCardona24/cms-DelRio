@@ -9,8 +9,8 @@ const newProduct= (): Product => ({
   precio: 0,
   cantidad: 0,
   descripcion: "",
-  tipo: 1,
-  finca: 1,
+  tipo: null,
+  finca: null,
   nombre: "",
 
  

@@ -53,7 +53,7 @@ export const useType_deliveryStore = defineStore("Type_delivery", () => {
 
 
 export const useType_productStore = defineStore("Type_product", () => {
-  const { getAll: loadApi } = createCrud({ resource: "tipo_entrega" });
+  const { getAll: loadApi } = createCrud({ resource: "tipo_producto" });
 
   const type_products = ref<Position[]>([]);
 

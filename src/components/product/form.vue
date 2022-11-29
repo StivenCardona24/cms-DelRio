@@ -50,7 +50,6 @@
 import type { FormInstance, FormRules } from "element-plus";
 import { useProductStore } from '@/store/product'
 import { useType_productStore } from '@/store/confi'
-import { useType_farmStore } from '@/store/confi'
 import { useFarmStore } from '@/store/farm'
 import {ElMessage } from 'element-plus';
 import { storeToRefs } from "pinia";

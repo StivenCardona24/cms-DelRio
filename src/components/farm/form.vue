@@ -9,6 +9,16 @@
     <el-form-item class="mb-6" label="Nombre: " prop="nombre">
       <el-input v-model="currentFarm.nombre" placeholder="Ingresa el nombre de la finca" />
     </el-form-item>
+    <el-form-item class="mb-6" label="Tipo: " prop="tipo_finca">
+      <el-select v-model="currentFarm.tipo_finca" placeholder="Seleccione el tipo de finca" clearable class="w-100" >
+        <el-option
+          v-for="ty in type_farms"
+          :key="ty.id"
+          :label="`${ty.nombre}`"
+          :value="ty.id"
+        />
+      </el-select>
+    </el-form-item>
     <el-form-item class="mb-6" label="Ciudad: " prop="ciudad">
       <el-select v-model="currentFarm.ciudad" placeholder="Selecciona la ciudad" clearable class="w-100" >
         <el-option
@@ -54,6 +64,7 @@ import {ElMessage } from 'element-plus';
 import { storeToRefs } from "pinia";
 import { useCityStore} from '@/store/city';
 import { useOficeStore } from '@/store/ofice'
+import {useType_farmStore} from '@/store/confi'
 
 
 const formRef :any = ref<FormInstance>();
@@ -109,8 +120,10 @@ const rules :any = reactive<FormRules>({
 const FarmStore = useFarmStore();
 const cityStore = useCityStore();
 const oficeStore = useOficeStore();
+const typeFarm = useType_farmStore();
 const { Ofices } = storeToRefs(oficeStore)
 const { cities } = storeToRefs(cityStore);
+const { type_farms} = storeToRefs(typeFarm);
 const { currentFarm, mesageBox} = storeToRefs(FarmStore);
 const { saveFarm } = FarmStore;
 const { loadCities } = useCityStore();

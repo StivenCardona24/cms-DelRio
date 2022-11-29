@@ -11,7 +11,7 @@ const newFarm = (): Farm => ({
   ciudad: null,
   direccion: "",
   celular: "",
-  tipo_finca: 2,
+  tipo_finca: null,
   cuenta: "",
   oficina: null,
 });
