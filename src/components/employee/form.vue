@@ -28,7 +28,7 @@
       <el-input v-model="currentEmployee.sueldo" placeholder="Ingresa el sueldo" /> 
     </el-form-item> 
     <el-form-item class="mb-6" label="cargo: " prop="cargo">
-       <el-select v-model="currentEmployee.cargo" placeholder="Selecciona el departamento" clearable class="w-100" >
+       <el-select v-model="currentEmployee.cargo" placeholder="Selecciona el cargo" clearable class="w-100" >
         <el-option
           v-for="position in positions "
           :key="position.id"
@@ -45,7 +45,7 @@
           />
     </el-form-item> 
     <el-form-item  class="mb-6" label="dependencia: " prop="dependencia">
-      <el-select v-model="currentEmployee.dependencia" placeholder="Selecciona el departamento" clearable class="w-100" >
+      <el-select v-model="currentEmployee.dependencia" placeholder="Selecciona la dependencia" clearable class="w-100" >
         <el-option
           v-for="dependence in dependencies"
           :key="dependence.id"
@@ -55,7 +55,7 @@
       </el-select>
     </el-form-item> 
     <el-form-item class="mb-6" label="oficina: " prop="oficina">
-      <el-select v-model="currentEmployee.oficina" placeholder="Selecciona el departamento" clearable class="w-100" >
+      <el-select v-model="currentEmployee.oficina" placeholder="Selecciona la oficina" clearable class="w-100" >
         <el-option
           v-for="ofice in Ofices"
           :key="ofice.id"
